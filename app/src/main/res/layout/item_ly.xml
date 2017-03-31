@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bill_list_item_content_ly"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:background="#ffffff"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:id="@+id/bill_list_item_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#333333"
+        android:textSize="16sp"
+        android:layout_alignParentLeft="true"
+        tools:text="今天" />
+
+    <TextView
+        android:id="@+id/bill_list_item_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bill_list_item_date"
+        android:layout_alignParentLeft="true"
+        android:textSize="16sp"
+        android:textColor="#333333"
+        tools:text="06:08" />
+
+
+    <TextView
+        android:id="@+id/bill_list_item_money"
+        android:paddingLeft="20dp"
+        android:textColor="#333333"
+        android:textSize="16sp"
+        android:layout_toRightOf="@id/bill_list_item_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+28392392.04"/>
+
+    <TextView
+        android:paddingLeft="20dp"
+        android:id="@+id/bill_list_item_desc"
+        android:layout_below="@+id/bill_list_item_money"
+        android:layout_toRightOf="@id/bill_list_item_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="预售-100%纯棉吊带小背心"/>
+
+</RelativeLayout>

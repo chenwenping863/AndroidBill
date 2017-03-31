@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bill_list_month_item_content_ly"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:background="#354400"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:id="@+id/bill_list_month_item_month_tx"
+        android:text="本月"
+        android:layout_alignParentLeft="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/bill_list_month_item_check_bill_tx"
+        android:text="查看月账单>"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>
