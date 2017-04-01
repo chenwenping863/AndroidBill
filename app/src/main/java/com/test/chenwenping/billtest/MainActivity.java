@@ -37,18 +37,15 @@ public class MainActivity extends Activity implements AdapterWrapper.OnHeaderCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //请求网络：
-
         list = new ArrayList<String>();
-        for(int i = 1;i <= 11;i ++) {
-            list.add(i + "##");
+        for(int i = 1; i <= 3; i ++) {
+            list.add(i + "###");
         }
 
         adapter = new StickyListAdapter();
         adapter.init(this, list);
 
         inflater = LayoutInflater.from(this);
-
 
         moredata = (RelativeLayout)inflater.inflate(R.layout.moredata, null);
         progressBarView = (View) moredata.findViewById(R.id.loadmore_foot_progressbar);
@@ -60,12 +57,14 @@ public class MainActivity extends Activity implements AdapterWrapper.OnHeaderCli
         loadingAnimation = (AnimationDrawable) progressBarView.getBackground();
         stickyLV.addFooterView(moredata);
         stickyLV.setAdapter(adapter);
+
         stickyLV.setOnItemClickListener(this);
-        stickyLV.setOnHeaderClickListener((StickyListHeadersListView.OnHeaderClickListener) this);
+        stickyLV.setOnHeaderClickListener(this);
         stickyLV.setLoadingMoreListener(this);
+
     }
 
-    public void loadingFinished() {
+    private void loadingFinished() {
 
         if (null != loadingAnimation && loadingAnimation.isRunning()) {
             loadingAnimation.stop();
@@ -90,12 +89,12 @@ public class MainActivity extends Activity implements AdapterWrapper.OnHeaderCli
 
                 @Override
                 public void run() {
-                    for(int i=0;i<5;i++) {
-                        list.add((Math.random() * 40) + "");
+                    for(int i = 0; i < 3; i ++) {
+                        list.add((Math.random() * 5) + "$$$");
                     }
                     loadingFinished();
                 }
-            },1200);
+            }, 1200);
         }
     }
 

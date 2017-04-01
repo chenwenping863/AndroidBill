@@ -21,7 +21,6 @@ public class StickyListAdapter extends BaseAdapter implements StickyListHeadersA
 	public void init(Context context, ArrayList<String> list) {
 		this.list = list;
 		this.mContext = context;
-		mContext = context;
 		inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	}
 	
@@ -40,15 +39,32 @@ public class StickyListAdapter extends BaseAdapter implements StickyListHeadersA
 		return 0;
 	}
 
+/*	@Override
+	public int getViewTypeCount() {
+		return 2;
+	}*/
+
+	/*@Override
+	public int getItemViewType(int position) {
+		if (list.get(position).hashCode() == 1) {
+			return 1;
+		} else {
+			return 2;
+		}
+	}
+*/
+
+
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
+		int flag  = getItemViewType(position);
 		View vi = convertView;
 		if(convertView == null) {
 			vi = inflater.inflate(R.layout.item_ly, null);
 		}
 
 		TextView tvDate = (TextView) vi.findViewById(R.id.bill_list_item_date);
-		tvDate.setText("Item--:" + position);
+		tvDate.setText("list:" + list.get(position));
 		tvDate.setTextSize(20);
 		return vi;
 	}
@@ -61,7 +77,7 @@ public class StickyListAdapter extends BaseAdapter implements StickyListHeadersA
 		}
 
 		TextView tvDate = (TextView) vi.findViewById(R.id.bill_list_month_item_month_tx);
-		tvDate.setText("Header--:" + position);
+		tvDate.setText("Header:" + list.get(position));
 		tvDate.setTextSize(20);
 		return vi;
 	}
@@ -69,6 +85,11 @@ public class StickyListAdapter extends BaseAdapter implements StickyListHeadersA
 
 	@Override
 	public long getHeaderId(int position) {
-		return position/10 + 0x1234;
+		Long id = 0l;
+		if (list.get(position).contains("$$")) {
+			id = Long.valueOf(position);
+		}
+
+		return id;
 	}
 }
